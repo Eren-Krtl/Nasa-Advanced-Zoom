@@ -1,12 +1,10 @@
-body {
-  font-family: Arial, sans-serif;
+body 
+{
+  background-color: #3f43cc; 
+  font-family: 'Arial Black', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: black;
   text-align: center;
-  margin-top: 50px;
-}
-
-button {
-  font-size: 18px;
-  padding: 10px 20px;
-  cursor: pointer;
 }
 
