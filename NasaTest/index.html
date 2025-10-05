@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nasa Picture Test</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <title>Zoomable Map</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background-color: #111;
+    }
+    #osd {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://unpkg.com/openseadragon@latest/build/openseadragon/openseadragon.min.js"></script>
 </head>
 <body>
-  <img src="TestImage1.jpg" alt="soğan👍" id="picureBig" style="position: absolute;">
-  <script src="script.js"></script>
+  <div id="osd"></div>
+
+  <script>
+    const viewer = OpenSeadragon({
+      id: "osd",
+      prefixUrl: "https://unpkg.com/openseadragon@latest/build/openseadragon/images/",
+      showNavigator: true,
+      minZoomLevel: 0.5,
+      maxZoomLevel: 10,
+      zoomPerScroll: 1.2,
+    });
+
+    // 🖼 Load a normal image instead of Deep Zoom tiles
+    viewer.open({
+      type: 'image',
+      url: 'https://astrogeology.usgs.gov/ckan/dataset/179b1654-9396-4c5b-80c0-4231ea0c369b/resource/b21de6da-4c3e-4fb2-b9b7-cbb624ccac76/download/mars_mo_themis-ir-night_mosaic_global_1024.jpg' // replace with your image
+    });
+  </script>
 </body>
 </html>
+
